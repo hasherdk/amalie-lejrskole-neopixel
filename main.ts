@@ -45,10 +45,9 @@ function changeState (state: number) {
     }
 }
 let activeState = 0
+let brightness = 0
 let desiredState = 0
 let strip: neopixel.Strip = null
-let brightness = 0
-brightness = 64
 strip = neopixel.create(DigitalPin.P0, 150, NeoPixelMode.RGB)
 desiredState = 0
 updateBrightness(64)
