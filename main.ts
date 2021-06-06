@@ -5,7 +5,7 @@ function updateBrightness (value: number) {
 }
 input.onButtonPressed(Button.A, function () {
     desiredState += 1
-    if (desiredState > 7) {
+    if (desiredState > 6) {
         desiredState = 1
     }
 })
@@ -30,9 +30,9 @@ function changeState (state: number) {
     if (state == 1) {
         strip.showColor(neopixel.colors(NeoPixelColors.Red))
     } else if (state == 2) {
-        strip.showColor(neopixel.colors(NeoPixelColors.Blue))
-    } else if (state == 3) {
         strip.showColor(neopixel.colors(NeoPixelColors.Green))
+    } else if (state == 3) {
+        strip.showColor(neopixel.colors(NeoPixelColors.Blue))
     } else if (state == 4) {
         strip.showRainbow(1, 360)
     } else if (state == 5) {
@@ -49,9 +49,9 @@ let brightness = 0
 let desiredState = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 150, NeoPixelMode.RGB)
-desiredState = 0
 updateBrightness(64)
 testSequence()
+desiredState = 1
 basic.forever(function () {
     if (activeState != desiredState) {
         changeState(desiredState)
